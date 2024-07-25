@@ -11,3 +11,5 @@ def num_check(question, error, num_type):
 
         except ValueError:
             print(error)
+
+
