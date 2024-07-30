@@ -47,18 +47,25 @@ def num_check(question, error, num_type):
 
 
 # Main routine goes here
+
+# instructions goes here
 show_instructions = yes_no("Do you want to see the instructions? ")
 
 if show_instructions == "show instructions":
-    print("Instructions go here")
+    print("Welcome to my recipe cost calculator")
+    print("follow the tasks step by step. For eggs just select g's and 1 g to one egg as i haven't added an egg option.")
+    print("once you have entered all you ingredients enter xxx and it will print your table out")
 print()
 
+# asks for recipe name
 recipe_name = not_blank("Please enter recipe name: ")
 print()
 
+# asks for servings
 servings = num_check("How many servings? ", "Please enter a number more than 0", int)
 print()
 
+# set up pandas library
 ingredient_list = []
 amount_bought_list = []
 amount_used_list = []
@@ -73,18 +80,23 @@ while True:
         print("We are done")
         break
 
+    # get units
     units = not_blank("What units is it in? (ml, g, kg, l): ")
     print()
 
+    # get amount
     amount = num_check(f"How many {units}'s did you buy? ", "Please enter a valid amount", float)
     print()
 
+    # get amount used
     amount_used = num_check(f"How many {units}'s did you use? ", "Please enter a valid amount", float)
     print()
 
+    # get cost
     cost = num_check("How much?: $", "Please enter a valid amount", float)
     print()
 
+    # unit conversion
     if units == "kg":
         amount = amount * 1000
     elif units == "l":
